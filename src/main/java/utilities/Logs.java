@@ -10,7 +10,7 @@ public class Logs {
         log = LogManager.getLogger("AUTOMATION");
     }
 
-    private void printSeparator() {
+    public void printSeparator() {
         log.info("------------------------------------------------------------------------------------------");
     }
 
