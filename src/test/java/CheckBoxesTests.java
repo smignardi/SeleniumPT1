@@ -63,7 +63,7 @@ public class CheckBoxesTests {
 
     @AfterMethod
     public void teardown() {
-        driver.close();
+        driver.quit();
         log.info("Fin del current test");
         log.printSeparator();
     }
