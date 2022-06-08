@@ -20,7 +20,9 @@ public class RemoveElementsTests {
         log.debug("Seteando el driver");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        log.debug("Maximizando pantalla");
         driver.manage().window().maximize();
+        log.debug("Borrando coockies");
         driver.manage().deleteAllCookies();
     }
 
@@ -39,8 +41,8 @@ public class RemoveElementsTests {
         var addElementBtnLocator = By.tagName("button");
         var addElementBtn = driver.findElement(addElementBtnLocator);
 
-        log.debug("Haciendo click 10 veces el en btn add element");
-        int i;
+        log.info("Haciendo click 10 veces el en btn add element");
+        var i=0;
         for (i=0; i<10 ; i++) {
             addElementBtn.click();
         }
@@ -49,7 +51,7 @@ public class RemoveElementsTests {
         var listDeleteElements = driver.findElements(deleteElementsLocator);
 
         log.debug("Eliminando cada elemento en pantalla");
-        for (WebElement x : listDeleteElements) {
+        for (var x : listDeleteElements) {
             x.click();
         }
 
@@ -57,8 +59,8 @@ public class RemoveElementsTests {
 
     @AfterMethod
     public void teardown() {
+        log.debug("Matando el driver");
         driver.quit();
-        log.debug("Fin del current test");
         log.printSeparator();
     }
 

@@ -19,16 +19,18 @@ public class StatusCodesTests {
         log.debug("Seteando el driver");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        log.debug("Maximizando pantalla");
         driver.manage().window().maximize();
+        log.debug("Borrando coockies");
         driver.manage().deleteAllCookies();
     }
 
     @Test
     public void statusTest() {
-        log.debug("Abriendo la pagina "+url);
+        log.info("Abriendo la pagina "+url);
         driver.get(url);
 
-        log.debug("Esperando 2 segundos a que cargue la pagina");
+        log.info("Esperando 2 segundos a que cargue la pagina");
         try{
             Thread.sleep(2000);
         } catch(InterruptedException e){
@@ -38,10 +40,10 @@ public class StatusCodesTests {
         var locator404 = By.linkText("404");
         var element404 = driver.findElement(locator404);
 
-        log.debug("Haciendo click en el elemento 404");
+        log.info("Haciendo click en el elemento 404");
         element404.click();
 
-        log.debug("Esperando 2 segundos a que cargue la pagina");
+        log.info("Esperando 2 segundos a que cargue la pagina");
         try{
             Thread.sleep(2000);
         } catch(InterruptedException e){
@@ -51,25 +53,25 @@ public class StatusCodesTests {
         var hereElementLocator = By.linkText("here");
         var hereElement = driver.findElement(hereElementLocator);
 
-        log.debug("Haciendo click en el elemento: here");
+        log.info("Haciendo click en el elemento: here");
         hereElement.click();
 
-        log.debug("Esperando 2 segundos a que cargue la pagina");
+        log.info("Esperando 2 segundos a que cargue la pagina");
         try{
             Thread.sleep(2000);
         } catch(InterruptedException e){
             log.error(e.getLocalizedMessage());
         }
 
-        log.debug("Vericando si la current url es igual a la del inicio");
+        log.info("Vericando si la current url es igual a la del inicio");
         Assert.assertEquals(driver.getCurrentUrl(),url,"Los urls no son iguales");
 
     }
 
     @AfterMethod
     public void teardown() {
+        log.debug("Matando el driver");
         driver.quit();
-        log.debug("Fin del current test");
         log.printSeparator();
     }
 }

@@ -18,7 +18,9 @@ public class CheckBoxesTests {
         log.debug("Seteando el driver");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        log.debug("Maximizando pantalla");
         driver.manage().window().maximize();
+        log.debug("Borrando coockies");
         driver.manage().deleteAllCookies();
     }
 
@@ -36,24 +38,24 @@ public class CheckBoxesTests {
         var checkboxesLocator = By.tagName("input");
         var listCheckboxes = driver.findElements(checkboxesLocator);
 
-        log.debug("Verificando si el primer checkbox esta marcado");
+        log.info("Verificando si el primer checkbox esta marcado");
         var checkbox1 = listCheckboxes.get(0);
         Assert.assertFalse(checkbox1.isSelected(),"El checkbox 1 está marcado");
 
-        log.debug("Verificando si el segundo checkbox esta marcado");
+        log.info("Verificando si el segundo checkbox esta marcado");
         var checkbox2 = listCheckboxes.get(1);
         Assert.assertTrue(checkbox2.isSelected(),"El checbox 2 no está marcado");
 
-        log.debug("Marcando el primer checbox");
+        log.info("Marcando el primer checbox");
         checkbox1.click();
 
-        log.debug("Desmarcado el segundo checbox");
+        log.info("Desmarcado el segundo checbox");
         checkbox2.click();
 
-        log.debug("Verificando si el primer checkbox esta desmarcado");
+        log.info("Verificando si el primer checkbox esta desmarcado");
         Assert.assertTrue(checkbox1.isSelected(),"El checbox 1 está desmarcado");
 
-        log.debug("Verificando si el segundo checkbox esta desmarcado");
+        log.info("Verificando si el segundo checkbox esta desmarcado");
         Assert.assertFalse(checkbox2.isSelected(),"El segundo checkbox sigue marcado");
 
     }
@@ -61,8 +63,8 @@ public class CheckBoxesTests {
 
     @AfterMethod
     public void teardown() {
+        log.debug("Matando el driver");
         driver.quit();
-        log.debug("Fin del current test");
         log.printSeparator();
     }
 
