@@ -49,7 +49,7 @@ public class RemoveElementsTests {
         var deleteElementsLocator = By.className("added-manually");
         var listDeleteElements = driver.findElements(deleteElementsLocator);
 
-        log.debug("Eliminando cada elemento en pantalla");
+        log.info("Eliminando cada elemento en pantalla");
         for (var x : listDeleteElements) {
             x.click();
         }
