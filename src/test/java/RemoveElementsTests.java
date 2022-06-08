@@ -31,7 +31,7 @@ public class RemoveElementsTests {
         log.debug("Ingresando a la pagina "+url);
         driver.get(url);
 
-        log.debug("Esperando 2 segundos a que cargue la pagina");
+        log.info("Esperando 2 segundos a que cargue la pagina");
         try{
             Thread.sleep(2000);
         } catch(InterruptedException e){
@@ -42,8 +42,7 @@ public class RemoveElementsTests {
         var addElementBtn = driver.findElement(addElementBtnLocator);
 
         log.info("Haciendo click 10 veces el en btn add element");
-        var i=0;
-        for (i=0; i<10 ; i++) {
+        for (var i=0; i<10 ; i++) {
             addElementBtn.click();
         }
 
