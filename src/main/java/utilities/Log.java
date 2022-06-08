@@ -3,10 +3,10 @@ package utilities;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Logs {
+public class Log {
     private final Logger log;
 
-    public Logs() {
+    public Log() {
         log = LogManager.getLogger("AUTOMATION");
     }
 
