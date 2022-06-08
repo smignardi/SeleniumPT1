@@ -26,9 +26,10 @@ public class CheckBoxesTests {
 
     @Test
     public void aea() {
-        log.debug("Abriendo la pagina "+url);
+        log.info("Abriendo la pagina "+url);
         driver.get(url);
 
+        log.info("Esperando 2 segundos a que cargue la pagina");
         try {
             Thread.sleep(2000);
         } catch(InterruptedException e){

@@ -28,7 +28,7 @@ public class RemoveElementsTests {
 
     @Test
     public void removeElements() {
-        log.debug("Ingresando a la pagina "+url);
+        log.info("Ingresando a la pagina "+url);
         driver.get(url);
 
         log.info("Esperando 2 segundos a que cargue la pagina");
